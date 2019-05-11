@@ -14,42 +14,40 @@ const keyboard = {
 };
 
 const sendMessage = message => {
-let result = '';
-let alphabet = 'qwertyuiopasdfghjklzxcvbnm';
+  let result = '';
+  let alphabet = 'qwertyuiopasdfghjklzxcvbnm';
 
-const translationObjects = message.split('').map(letter => {
-  return findKeyAndClickAmount(keyboard, letter)
-});
+  const translationObjects = message.split('').map(letter => {
+    return findKeyAndClickAmount(keyboard, letter)
+  });
 
-console.log('translationObjects', translationObjects);
-
-translationObjects.forEach(object => {
-  for (let key in object) {
-    while (object[key] > 0) {
-      result += key;
-      object[key]--;
+  console.log('translationObjects', translationObjects);
+  translationObjects.forEach(object => {
+    for (let key in object) {
+      while (object[key] > 0) {
+        result += key;
+        object[key]--;
+      }
     }
-  }
-})
-return result;
+  })
+  return result;
 }
 
 const findKeyAndClickAmount = (keyboard, letter) => {
-let keyboardNumber;
-let clickAmount;
-for (let key in keyboard) {
-  if (keyboard[key].includes(letter)) {
-    keyboard[key].includes(letter);
-    keyboardNumber = key;
+  let keyboardNumber;
+  let clickAmount;
+  for (let key in keyboard) {
+    if (keyboard[key].includes(letter)) {
+      keyboard[key].includes(letter);
+      keyboardNumber = key;
+    }
   }
-}
-clickAmount = keyboard[keyboardNumber].indexOf(letter) + 1;
+  clickAmount = keyboard[keyboardNumber].indexOf(letter) + 1;
 
-let translationObject = {[keyboardNumber]: clickAmount}
-console.log("translationObject", translationObject)
-return translationObject;
+  let translationObject = {[keyboardNumber]: clickAmount}
+  console.log("translationObject", translationObject)
+  return translationObject;
 }
-
 
 sendMessage('hey');
 //4433999
