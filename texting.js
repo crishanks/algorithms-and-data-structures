@@ -9,48 +9,67 @@ const keyboard = {
   '7': ['p', 'q', 'r','s'],
   '8': ['t', 'u', 'v'],
   '9': ['w', 'x', 'y', 'z'],
- '*': ["'", '-', '+', '='],
- '#': []
+ '*': ["'", '-', '+', '=']
 };
 
 const sendMessage = message => {
-  let result = '';
-  let alphabet = 'qwertyuiopasdfghjklzxcvbnm';
+let result = '';
 
-  const translationObjects = message.split('').map(letter => {
-    return findKeyAndClickAmount(keyboard, letter)
-  });
+const translationObjects = message.split('').map(letter => {
+  // console.log('sendMessage letter', letter)
+  return findKeyAndClickAmount(letter)
+});
 
-  console.log('translationObjects', translationObjects);
-  translationObjects.forEach(object => {
-    for (let key in object) {
-      while (object[key] > 0) {
-        result += key;
-        object[key]--;
-      }
-    }
-  })
-  return result;
-}
-
-const findKeyAndClickAmount = (keyboard, letter) => {
-  let keyboardNumber;
-  let clickAmount;
-  for (let key in keyboard) {
-    if (keyboard[key].includes(letter)) {
-      keyboard[key].includes(letter);
-      keyboardNumber = key;
+console.log('translationObjects', translationObjects);
+translationObjects.forEach(object => {
+  for (let key in object) {
+    while (object[key] > 0) {
+      result += key;
+      object[key]--;
     }
   }
-  clickAmount = keyboard[keyboardNumber].indexOf(letter) + 1;
-
-  let translationObject = {[keyboardNumber]: clickAmount}
-  console.log("translationObject", translationObject)
-  return translationObject;
+})
+return result;
 }
 
-sendMessage('hey');
-//4433999
+const findKeyAndClickAmount = (letter) => {
+let keyboardNumber;
+let clickAmount;
+for (let key in keyboard) {
+  console.log('keyboard[key]', keyboard[key])
+  // console.log('letter', letter)
+  if (keyboard[key].includes(letter)) {
+    keyboardNumber = key;
+  } else if (upperCase(letter)){
+    keyboardNumber = `#${key}`
+  } else if (hold(key, letter)) {
+    keyboardNumber = `${key}-`
+  }
+}
+
+clickAmount = keyboard[keyboardNumber].indexOf(letter) + 1;
+
+let translationObject = {[keyboardNumber]: clickAmount}
+console.log("translationObject", translationObject)
+return translationObject;
+}
+
+const upperCase = letter => {
+// console.log('letter', letter)
+if (letter === letter.toUpperCase()) {
+  return true;
+}
+return false;
+}
+
+const hold = (key, letter) => {
+if (key === letter) {
+  return true;
+}
+return false;
+}
+
+sendMessage('hello 2 world!=');
 
 //create an object that represents the keypad
 //key is the number, the value is array of letters/symbols we can acces by their index
