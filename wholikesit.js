@@ -8,21 +8,7 @@ function likes(names) {
   } else if (names.length === 3) {
     return `${names[0]}, ${names[1]} and ${names[2]} like this`
   } else {
-    return formatManyNames(names);
-  }
-}
-
-function formatManyNames(names) {
-  let result = '';
-  for (let i = 0; i < names.length; i++) {
-    const currentName = names[i];
-    if (i < 1) {
-      result += `${currentName}, `;
-    } else if (i === 1) {
-      result += currentName;
-    } else {
-      return result += ` and ${names.length - i} others like this`
-    }
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
   }
 }
 
