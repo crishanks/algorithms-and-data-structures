@@ -1,24 +1,14 @@
-const assert = require('assert');
-const find = require('../first-unique-character.js');
-const sinon = require('sinon');
+let assert = require('assert');
+let find = require('../first-unique-character.js');
+let sinon = require('sinon');
+let expect = require('chai').expect;
 
 describe('Find First Unique Character', () => {
   describe('createWordObject', () => {
-    it('should call firstUniqueCharacter', () => {
-      let spy = sinon.spy(find.firstUniqueCharacter, 'loop');
-      spy.callCount.should.eql(0);
+    it("should call firstUniqueCharacter with {'l': 1, 'o': 2, 'p': 1}", () => {
+      const fucSpy = sinon.spy(find, 'firstUniqueCharacter');
       find.createWordObject('loop');
-      spy.calledOnce.should.eql(true);
-    });
-    it('firstUniqueCharacter should be called with a letter count object', () => {
-      const fucSpy = sinon.spy(firstUniqueCharacter);
-      assert(fucSpy.calledOnce);
-      assert(fucSpy.called);
-      assert.equal(fucSpy.callCount, 1);
-      const args = fucSpy()[0].args;
-      assert.equal({'l': 1, 'o': 2, 'p': 1}, args);
-      // firstUniqueCharacter();
-      // firstUniqueCharacter.getCall(0).args => should be {'l': 1, 'o': 2, 'p': 1}
+      assert(fucSpy.calledOnceWith({'l': 1, 'o': 2, 'p': 1}));
     });
     it('should return 0 if an empty string is passed in', () => {
       assert.equal(0, find.createWordObject(''));
