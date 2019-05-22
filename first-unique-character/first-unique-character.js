@@ -13,7 +13,7 @@ find.createWordObject = (str) => {
       wordObj[currentLetter] = 1;
     }
   }
-  return firstUniqueCharacter(wordObj);
+  return find.firstUniqueCharacter(wordObj);
 }
 
 find.firstUniqueCharacter = (obj) => {
@@ -24,7 +24,7 @@ find.firstUniqueCharacter = (obj) => {
   }
 }
 
-createWordObject('loop');
+find.createWordObject('loop');
 
 
 module.exports = find;
