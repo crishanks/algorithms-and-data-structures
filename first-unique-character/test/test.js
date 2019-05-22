@@ -1,7 +1,6 @@
 let assert = require('assert');
 let find = require('../first-unique-character.js');
 let sinon = require('sinon');
-let expect = require('chai').expect;
 
 describe('Find First Unique Character', () => {
   describe('createWordObject', () => {
