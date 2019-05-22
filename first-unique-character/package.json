@@ -1,0 +1,12 @@
+{
+  "name": "first-unique-character",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "sinon": "^7.3.2"
+  }
+}
