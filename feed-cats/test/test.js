@@ -1,17 +1,21 @@
 let assert = require('assert');
-const expect = require('chai').expect;
+let expect = require('chai').expect;
+let chai = require('chai');
 let sinon = require('sinon');
-let cat = require('../feed-cat');
+let sinonChai = require('sinon-chai');
+let cat = require('../feed-cat.js');
+
+chai.use(sinonChai);
 
 describe('Feed the Cat', () => {
   describe('cat.feed', () => {
     it('should return the cat is full when n >= 0', () => {
-      assert.equal('the cat is full', 4);
+      assert.equal('the cat is full', cat.feed(4));
     });
     it('should log the cat is still hungry while n > 0', () => {
-      const feedSpy = sinon.spy(cat, 'feed');
-      cat.feed(1);
-      expect(console.log.calledWith('the cat is still hungry')).to.be.true;
+      const logSpy = sinon.spy(console, 'log');
+      cat.feed(3);
+      expect(logSpy.calledThrice).to.be.true;
     });
   });
 });
