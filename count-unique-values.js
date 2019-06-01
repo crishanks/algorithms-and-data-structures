@@ -3,10 +3,10 @@ function countUniqueValues(arr){
     return 0;
   }
   let uniqueValues = 1;
-  for (let i = 0; i < sortedArr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     let j = i + 1;
-    if (j < sortedArr.length) {
-      if (sortedArr[i] !== sortedArr[j]) {
+    if (j < arr.length) {
+      if (arr[i] !== arr[j]) {
         uniqueValues++;
       }
     }
