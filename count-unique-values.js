@@ -2,8 +2,6 @@ function countUniqueValues(arr){
   if (arr.length === 0) {
     return 0;
   }
-  const sortedArr = arr.sort();
-
   let uniqueValues = 1;
   for (let i = 0; i < sortedArr.length; i++) {
     let j = i + 1;
@@ -24,5 +22,5 @@ function countUniqueValues(arr){
 //if same, increment uniqueValues, if not, increment j and i
 //return uniqueValues
 
-countUniqueValues([1,2,3,3,0,0,0,5,5,6,3,7,7,7,13]);
+countUniqueValues([1,2,3,3,0,0,0,5,5,6,7,7,7,13]);
 //8
