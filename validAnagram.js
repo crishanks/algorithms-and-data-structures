@@ -12,10 +12,10 @@ const isAnagram = (str1, str2) => {
 
   //check that object 2 has all the same keys and values as obj 1
   for (char of str2) {
-    if (!str2[char]) {
+    if (!counter[char]) {
       return false;
     } else {
-      str2[char] -= 1;
+      counter[char] -= 1;
     }
   }
 
