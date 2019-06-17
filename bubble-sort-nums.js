@@ -13,6 +13,4 @@ const bubbleSort = arr => {
   return arr;
 }
 
-bubbleSort([1,5,2,3,4]);
-
 bubbleSort([1,35,3,57,89,7,1,9,0]); //sort the nums from lowest to highest
