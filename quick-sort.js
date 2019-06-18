@@ -20,4 +20,4 @@ const quickSort = (arr, left=0, right=arr.length-1) => {
   return arr;
 }
 
-quickSort([4,6,9,1,2,5]);
+quickSort([4,6,9,1,2,5]); //sorted array
