@@ -66,12 +66,16 @@ class SinglyLinkedList {
     this.length++;
     return this; 
   }
-  
-}
 
-const list = new SinglyLinkedList();
-list.push('hello');
-list.push('goodbye');
-list.push('!');
-list.unshift('first');
-console.log(list);
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+
+}
