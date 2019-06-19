@@ -7,13 +7,13 @@ class Node {
 
 class SinglyLinkedList {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.head = head;
+    this.tail = tail;
     this.length = 0;
   }
-  
+
   push(val) {
-    let newNode = new Node(val);
+    const newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
@@ -29,7 +29,7 @@ class SinglyLinkedList {
     if (!this.head) return undefined;
     let current = this.head;
     let newTail = current;
-    while(current.next) {
+    while (current.next) {
       newTail = current;
       current = current.next;
     }
@@ -42,4 +42,36 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+    let currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
+
+  unshift(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this; 
+  }
+  
 }
+
+const list = new SinglyLinkedList();
+list.push('hello');
+list.push('goodbye');
+list.push('!');
+list.unshift('first');
+console.log(list);
