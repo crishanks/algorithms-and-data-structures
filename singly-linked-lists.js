@@ -78,4 +78,13 @@ class SinglyLinkedList {
     return current;
   }
 
+  set(index, val) {
+    let nodeToUpdate = this.get(index);
+    if (nodeToUpdate) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+
 }
