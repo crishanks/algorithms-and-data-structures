@@ -129,4 +129,14 @@ class SinglyLinkedList {
     return this;
   }
 
+  reverseRecursive(curr, prev) {
+    if (curr.next) {
+      const newHead = reverseRecursive(curr.next, curr);
+      curr.next = prev;
+      return newHead;
+    }
+    curr.next = prev;
+    return curr;
+  }
+
 }
