@@ -26,20 +26,19 @@ class SinglyLinkedList {
   }
 
   pop() {
-    if (!this.head) return undefined;
-    let current = this.head;
-    let newTail = current;
-    while (current.next) {
-      newTail = current;
-      current = current.next;
+    let currentNode = this.head;
+    let prevNode = currentNode;
+    while(current.next) {
+      currentNode = currentNode.next;
+      prevNode = currentNode;
     }
-    this.tail = newTail;
+    this.tail = prevNode;
     this.tail.next = null;
-    this.length--;
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
+    this.length--;
     return current;
   }
 
