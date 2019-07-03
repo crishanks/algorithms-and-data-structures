@@ -117,4 +117,21 @@ class DoublyLinkedList {
     return true;
   }
 
+  remove(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+    
+    let removeNode = this.get(index);
+    let beforeNode = removeNode.prev;
+    let afterNode = removeNode.next;
+    
+    beforeNode.next = afterNode;
+    afterNode.prev = beforeNode;
+    removeNode.next = null
+    removeNode.prev = null;
+    this.length--;
+    return removeNode;
+  }
+
 }
