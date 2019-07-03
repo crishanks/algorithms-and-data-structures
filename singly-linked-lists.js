@@ -131,7 +131,7 @@ class SinglyLinkedList {
 
   reverseRecursive(curr, prev) {
     if (curr.next) {
-      const newHead = reverseRecursive(curr.next, curr);
+      const newHead = this.reverseRecursive(curr.next, curr);
       curr.next = prev;
       return newHead;
     }
