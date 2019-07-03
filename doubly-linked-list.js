@@ -93,4 +93,14 @@ class DoublyLinkedList {
     }
   }
 
+  set(val, index) {
+    let oldNode = this.get(index);
+    if (oldNode !== null) {
+      oldNode.val = val;
+      return true;
+    }
+    return false;
+  }
+
+
 }
