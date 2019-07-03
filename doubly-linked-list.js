@@ -79,7 +79,6 @@ class DoublyLinkedList {
       while (count !== index) {
         current = current.next;
         count++;
-        return current;
       }
       return current;
     } else {
@@ -88,8 +87,8 @@ class DoublyLinkedList {
       while (count !== 0) {
         current = current.prev;
         current--;
-        return current;
       }
+      return current;
     }
   }
 
@@ -125,7 +124,7 @@ class DoublyLinkedList {
     let removeNode = this.get(index);
     let beforeNode = removeNode.prev;
     let afterNode = removeNode.next;
-    
+
     beforeNode.next = afterNode;
     afterNode.prev = beforeNode;
     removeNode.next = null
