@@ -6,13 +6,12 @@ function sockMerchant(n, ar) {
   let matches = 0;
   let matchesObj = {};
 
-  for (let i = 0; i < n; i++) {
-    const currentNum = ar[i];
+  for (currentNum of ar) {
     const exists = matchesObj[currentNum];
     if (!exists) {
       matchesObj[currentNum] = 1;
     } else {
-      matchesObj[currentNum] += 1;
+      matchesObj[currentNum]++;
     }
   }
 
