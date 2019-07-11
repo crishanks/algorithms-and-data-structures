@@ -8,16 +8,16 @@ function jumpingOnClouds(c) {
   let jumps = 0;
 
   for (let i = 0; i < c.length; i++) {
-      const twoAhead = c[i + 2];
-      const oneAhead = c[i + 1];
-      if (oneAhead !== undefined) {
-          if (twoAhead === 1) {
-              jumps++;
-          } else {
-              i++;
-              jumps++;
-          }
+    const twoAhead = c[i + 2];
+    const oneAhead = c[i + 1];
+    if (oneAhead !== undefined) {
+      if (twoAhead === 1) {
+        jumps++;
+      } else {
+          i++;
+        jumps++;
       }
+    }
   }
   return jumps;
 }
