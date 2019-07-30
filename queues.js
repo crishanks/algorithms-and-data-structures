@@ -2,23 +2,21 @@
 const queue = [];
 
 //with push and shift
-queue.push('first')
-queue.push('second')
-queue.push('third')
+queue.push('first');
+queue.push('second');
+queue.push('third');
 
-queue.shift()
+queue.shift();
 
 //with unshift and pop
+queue.unshift('1');
+queue.push('2');
+queue.push('3');
 
-queue.unshift('1')
-queue.push('2')
-queue.push('3')
-
-queue.pop()
+queue.pop();
 
 
 //with a linked list
-
 class Node {
     constructor(value) {
         this.value = value;
@@ -33,5 +31,26 @@ class Queue {
         this.size = 0;
     }
 
-    
+    enqueue(val) {
+        const newNode = new Node(val);
+        if (!this.first) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode;
+        }
+        return ++this.size;
+    }
+
+    dequeue() {
+        if (!this.first) return null;
+        let temp = this.first;
+        if (this.first === this.last) {
+            this.last = null;
+        }
+        this.first = this.first.next;
+        this.size--;
+        return temp;
+    }
 }
