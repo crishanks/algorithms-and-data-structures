@@ -4,4 +4,9 @@ function isPalindrome(str) {
   return isPalindrome(str.slice(1, str.length - 1));
 }
 
-isPalindrome('tacocat'); //true
+isPalindrome('pulp'); //false
+
+//   pulp
+//   p === p
+//      ul
+//      u !== l --> false
