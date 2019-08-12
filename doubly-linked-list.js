@@ -84,7 +84,7 @@ class DoublyLinkedList {
     } else {
       let count = this.length - 1;
       let current = this.tail;
-      while (count !== 0) {
+      while (count !== index) {
         current = current.prev;
         current--;
       }
