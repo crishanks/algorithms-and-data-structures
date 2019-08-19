@@ -7,6 +7,14 @@ class Graph {
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
   }
 
+  removeVertex(vertex) {
+    while(this.adjacencyList[vertex].length) {
+      const adjacentVertex = this.removeEdge(this.adjacencyList[vertex].pop());
+      this.removeEdge(vertex, adjacentVertex);
+    }
+    delete this.adjacencyList[vertex];
+  }
+
   addEdge(v1, v2) {
     this.adjacencyList[v1].push(v2);
     this.adjacencyList[v2].push(v1);
