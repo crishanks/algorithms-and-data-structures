@@ -60,7 +60,7 @@ class BinarySearchTree {
         data = [],
         queue = [];
 
-    queue.push(node);
+    queue.push(node.value);
     while(queue.length) {
       node = queue.shift();
       data.push(node);
@@ -76,6 +76,18 @@ class BinarySearchTree {
       data.push(node.value);
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return data;
+  }
+
+  DFSPostOrder() {
+    let data = [];
+    let current = this.root;
+    const traverse = node => {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.value);
     }
     traverse(current);
     return data;
