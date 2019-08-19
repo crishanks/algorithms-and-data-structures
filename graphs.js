@@ -9,7 +9,7 @@ class Graph {
 
   removeVertex(vertex) {
     while(this.adjacencyList[vertex].length) {
-      const adjacentVertex = this.removeEdge(this.adjacencyList[vertex].pop());
+      const adjacentVertex = this.adjacencyList[vertex].pop();
       this.removeEdge(vertex, adjacentVertex);
     }
     delete this.adjacencyList[vertex];
