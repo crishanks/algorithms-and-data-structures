@@ -44,8 +44,8 @@ class Graph {
     let result = [];
     let visited = {};
     let currentVertex;
+    
     visited[start] = true;
-
     while(stack.length) {
       currentVertex = stack.pop();
       result.push(currentVertex);
@@ -54,6 +54,26 @@ class Graph {
         if (!visited[neighbor]) {
           visited[neighbor] = true;
           stack.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
+
+  breadthFirst(start) {
+    let queue = [start];
+    let result = [];
+    let visited = {};
+    let currentVertex;
+    
+    visited[start] = true;
+    while(queue.length) {
+      currentVertex = queue.shift();
+      result.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
         }
       });
     }
