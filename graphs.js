@@ -25,4 +25,38 @@ class Graph {
     this.adjacencyList[v2] = this.adjacencyList[v2].filter( v => v !== v1 );
   }
 
+  depthFirstRecursive(start) {
+    let result = [];
+    let visited = {};
+    const adjacencyList = this.adjacencyList;
+
+    (function traverse(vertex) {
+      if (!vertex) return null;
+      if (!visited[vertex]) visited[vertex] = true;
+      result.push(vertex);
+      adjacencyList[vertex].forEach(neighbor => { if (!visited[neighbor]) return traverse(neighbor); });
+    })(start)
+    return result;
+  }
+
 }
+
+let g = new Graph()
+
+g.addVertex("A")
+g.addVertex("B")
+g.addVertex("C")
+g.addVertex("D")
+g.addVertex("E")
+g.addVertex("F")
+
+g.addEdge("A", "B")
+g.addEdge("A", "C")
+g.addEdge("B", "D")
+g.addEdge("C", "E")
+g.addEdge("D", "E")
+g.addEdge("D", "F")
+g.addEdge("E", "F")
+
+console.log(g);
+console.log(g.depthFirstRecursive("A"));
