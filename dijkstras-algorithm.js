@@ -156,8 +156,4 @@ graph.addEdge("D","F", 1);
 graph.addEdge("E","F", 1);
 
 
-graph.Dijkstra("A", "E");
-
-
-
-
+graph.dijkstra("A", "E");
