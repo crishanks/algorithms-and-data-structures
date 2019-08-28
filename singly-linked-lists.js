@@ -7,8 +7,8 @@ class Node {
 
 class SinglyLinkedList {
   constructor() {
-    this.head = head;
-    this.tail = tail;
+    this.head = null;
+    this.tail = null;
     this.length = 0;
   }
 
