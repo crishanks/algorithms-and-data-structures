@@ -18,42 +18,52 @@ stack.unshift('cloned out wrinkle')
 stack.shift()
 
 //with a singly linked list
-
 class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
 class Stack {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
-    }
+  constructor() {
+    this.size = 0;
+    this.bottom = null;
+    this.top = null;
+  }
 
-    push(val) {
-        const newNode = new Node(val);
-        if (!this.first) {
-            this.first = newNode;
-            this.last = newNode;
-        } else {
-            const temp = this.first;
-            this.first = newNode;
-            this.first.next = temp;
-        }
-        return ++this.size;
+  push(value) {
+    const newNode = new Node(value);
+    if (!this.top) {
+      this.top = newNode;
+      this.bottom = newNode;
+    } else {
+      const originalTop = this.top;
+      this.top = newNode;
+      this.top.next = originalTop;
     }
+    return ++this.size;
+  }
 
-    pop() {
-        if (!this.first) return null;
-        const temp = this.first;
-        if (this.first === this.last) {
-            this.last = null;
-        }
-        this.first = this.first.next;
-        this.size--;
-        return temp.val;
+  pop() {
+    if (!this.top) return null;
+    const originalTop = this.top;
+    if (this.top === this.bottom) {
+      this.bottom = null;
     }
+    this.top = this.top.next;
+    this.length--;
+    return originalTop.value;
+  }
+
 }
+
+// Examples:
+// Used to add and remove from the beginning
+// Call Stack, undo/redo, routing (previous page, next page)
+
+// Big O:
+// Insertion - O(1)
+// Removal - O(1)
+// Searching - O(N)
+// Access - O(N)

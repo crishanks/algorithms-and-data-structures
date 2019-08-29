@@ -18,39 +18,49 @@ queue.pop();
 
 //with a linked list
 class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
 class Queue {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
-    }
+  constructor() {
+    this.front = null;
+    this.back = null;
+    this.size;
+  }
 
-    enqueue(val) {
-        const newNode = new Node(val);
-        if (!this.first) {
-            this.first = newNode;
-            this.last = newNode;
-        } else {
-            this.last.next = newNode;
-            this.last = newNode;
-        }
-        return ++this.size;
+  enqueue(val) {
+    const newNode = new Node(value);
+    if (!this.front) {
+      this.front = newNode;
+      this.back =newNode;
+    } else {
+      this.back.next = newNode;
+      this.back = newNode;
     }
+    return ++this.size;
+  }
 
-    dequeue() {
-        if (!this.first) return null;
-        let temp = this.first;
-        if (this.first === this.last) {
-            this.last = null;
-        }
-        this.first = this.first.next;
-        this.size--;
-        return temp;
+  dequeue() {
+    if (!this.front) return null;
+    const originalFront = this.front;
+    if (this.front === this.back) {
+      this.back = null;
     }
+    this.front = this.front.next;
+    this.size--;
+    return originalFront.value;
+  }
 }
+
+// Examples:
+// Used to keep track of an order, and the first in must always be the first out
+// processing tasks (who/what has been waiting the longest?), uploading resources, printing
+
+// Big O:
+// Insertion - O(1)
+// Removal - O(1)
+// Searching - O(N)
+// Access - O(N)
