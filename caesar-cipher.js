@@ -1,8 +1,7 @@
 const caesarCipher = (str, n) => {
     let result = '';
-    let lowercaseStr = str.toLowerCase();
     
-    for (char of lowercaseStr) {
+    for (char of str) {
       let asciiVal = char.charCodeAt() + n;
       if (asciiVal > 122) {
         asciiVal -= 26;
@@ -14,9 +13,8 @@ const caesarCipher = (str, n) => {
     return result;
   }
   
-  caesarCipher('hwyqb', 6); // 'jgnnq
+  caesarCipher('Hwyqb', 6); // 'Ncewh'
   
-  //make the string lowercase.
   //grab the ascii value of each letter in the string
   //add n to the ascii value
   //turn that value back into a string
